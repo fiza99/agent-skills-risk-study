@@ -1,26 +1,39 @@
-# agent-skills-risk-study
-Security and privacy risks of AI agent skills for vulnerable users
+# Security and Privacy Risks of AI Agent Skills for Vulnerable Users
+
+Preliminary measurement study of AI agent skill files (instruction files and
+tool permissions that tell an AI agent what it can read, run, and send).
 
 ## 1. Research question
-Do AI agent skills that touch sensitive data (health, finance, location, children's
-data) request risky capabilities without safeguards that protect users?
+Do AI agent skills that touch sensitive data (health, finance, location,
+children's data) request risky capabilities without any user-protecting safeguards?
+Vulnerable users, such as children, older adults, migrants, and survivors of
+domestic violence, are the least able to notice or recover from data leakage.
 
 ## 2. Approach
-A preliminary measurement study of [13016] AI agent skill files. Each skill was tagged by
-sensitive domain and by indirect access to personal data, then checked for five types
-of risky capability and for safeguard wording such as confirmation or consent.
+- Dataset: 13,016 AI agent skill files.
+- Each skill was tagged by sensitive domain (8 domains) and by indirect access to
+  personal data (3 types: personal data stores, credentials and accounts, device access).
+- Each skill was checked for five risky capabilities: network calls, shell execution,
+  broad file access, credential handling, and instruction-injection wording.
+- Each skill was checked for safeguard wording, such as confirmation, consent, or privacy.
 
 ## 3. Key findings
-- [13016] skill files analyzed
-- [3]% of skills with credential or account access show risky capabilities and no safeguard wording
-- [32]% of location-related skills show the same pattern
+- 13,016 skill files analyzed.
+- 46.7% of all skills show at least one risky capability, and 22% show a risky
+  capability with no safeguard wording.
+- 32.2% of skills with credential or account access show a risky capability and no
+  safeguard wording.
+- 28.3% of location-related skills show the same pattern.
+- 22.0% of children and education skills show the same pattern.
+- Percentages are of the skills in each group. Groups overlap, so they should not be added.
 
-## 4. Limitations and ethics
-Results are keyword-based estimates of what skill text mentions, not confirmed
-vulnerabilities, and were checked on a manual sample of 40 skills (precision [1]%).
-No individual skills are named, and any real vulnerabilities are reported privately
-to authors first.
+## 4. Files in this repository
+- `results_summary.xlsx`: summary tables, charts, and a data dictionary explaining
+  every column.
+- `figures/`: charts used in the brief.
 
-## 5. Status and contact
-Ongoing research. We will release the code and full results with the publication.
-Contact: [Fiza Kanwal], [fizakanwal99@gmail.com]
+## 5. Limitations, ethics, and status
+- Results are keyword-based estimates of what skill text mentions. They are not
+  confirmed vulnerabilities, and many skills are developer documentation.
+- Status: ongoing research. 
+- Contact: [fiza kanwal], [fizakanwal99@gmail.com]
